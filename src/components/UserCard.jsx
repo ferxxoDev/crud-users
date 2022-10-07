@@ -1,6 +1,10 @@
 import React from 'react'
 
-const UserCard = ({user, deleteUserById}) => {
+const UserCard = ({user, deleteUserById, setUpdateInfo}) => {
+
+const handleEdit = () => {
+  setUpdateInfo(user)
+}
 
   return (
     <article>
@@ -11,7 +15,7 @@ const UserCard = ({user, deleteUserById}) => {
         </ul>
         <footer>
         <i onClick={() => deleteUserById(user.id)} className="fa-solid fa-trash-can"></i>
-        <i className="fa-solid fa-pen-to-square"></i>
+        <i onClick={handleEdit} className="fa-solid fa-pen-to-square"></i>
         </footer>
     </article>
   )

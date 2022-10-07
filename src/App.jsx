@@ -10,7 +10,10 @@ const baseURL = 'https://users-crud1.herokuapp.com'
 function App() {
 
   const [users, setUsers] = useState()
+  //Estro para pasar info desde UserCard hasta Form User
+  const [updateInfo, setUpdateInfo] = useState()
 
+  // Para hacer el get de todos los users
   const getAllUsers = () => {
     const URL = `${baseURL}/users/`
     axios.get(URL)
@@ -44,11 +47,25 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  // Para actulizar un usuario en especifico
+  const updateUserById = (id, data) => {
+    const URL = `${baseURL}/users/${id}/`
+    axios.patch(URL, data)
+      .then(res => {
+        console.log(res.data)
+        getAllUsers()
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
     <div className="App">
       <h1>Users CRUD</h1>
       <FormUsers 
       createNewUser={createNewUser}
+      updateInfo={updateInfo}
+      updateUserById={updateUserById}
+      setUpdateInfo={setUpdateInfo}
       />
       {
         users?.map(user => (
@@ -56,6 +73,7 @@ function App() {
             key={user.id}
             user={user}
             deleteUserById={deleteUserById}
+            setUpdateInfo={setUpdateInfo}
           />
         )) 
       }

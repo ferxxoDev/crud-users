@@ -1,17 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
+const defaultValues ={
+    email: '',
+    password: '',
+    first_name: '',
+    last_name: '',
+    birthday: ''
+}
 
-const FormUsers = ({createNewUser}) => {
+const FormUsers = ({createNewUser, updateInfo, updateUserById, setUpdateInfo}) => {
+
+    // console.log(updateInfo);
+
+    useEffect(() => {
+        if(updateInfo){
+            reset(updateInfo)
+        }
+    }, [updateInfo])
+    
 
     const {handleSubmit, register, reset} = useForm()
 
     const submit = data => {
-        createNewUser(data)
+        if(updateInfo){
+            // Update
+            updateUserById(updateInfo.id, data)
+            setUpdateInfo()
+        } else{
+            // Create
+            createNewUser(data)
+        }
+        reset(defaultValues)
     }
 
   return (
     <form onSubmit={handleSubmit(submit)}>
+        <h2>{updateInfo ? 'Edit User': 'New User'}</h2>
         <div>
             <label htmlFor="email">Email</label>
             <input type="email" id="email" {...register('email')}/>
@@ -36,7 +61,7 @@ const FormUsers = ({createNewUser}) => {
             <label htmlFor="birthday">Birthday</label>
             <input type="date" id="birthday" {...register('birthday')}/>
         </div>
-        <button>Create</button>
+        <button>{updateInfo ? 'Update' : 'Create'}</button>
     </form>
   )
 }
