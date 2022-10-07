@@ -3,6 +3,7 @@ import './App.css'
 import axios from 'axios'
 import FormUsers from './components/FormUsers'
 import UserCard from './components/UserCard'
+import './components/styles/userCars.css'
 
 const baseURL = 'https://users-crud1.herokuapp.com'
 
