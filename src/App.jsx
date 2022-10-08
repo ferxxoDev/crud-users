@@ -15,6 +15,8 @@ function App() {
   //Estro para pasar info desde UserCard hasta Form User
   const [updateInfo, setUpdateInfo] = useState()
 
+  const [formIsClose, setformIsClose] = useState(true)
+
   // Para hacer el get de todos los users
   const getAllUsers = () => {
     const URL = `${baseURL}/users/`
@@ -62,8 +64,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Users CRUD</h1>
-      <div className='form-container'>
+      <h1 className='App__title'>Users CRUD</h1>
+      <button className='App__btn'>Create a New User</button>
+      <div className={`form-container ${formIsClose && 'disable__form'}`}>
       <FormUsers 
       createNewUser={createNewUser}
       updateInfo={updateInfo}
