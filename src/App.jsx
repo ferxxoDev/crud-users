@@ -4,6 +4,7 @@ import axios from 'axios'
 import FormUsers from './components/FormUsers'
 import UserCard from './components/UserCard'
 import './components/styles/userCars.css'
+import './components/styles/formUsers.css'
 
 const baseURL = 'https://users-crud1.herokuapp.com'
 
@@ -62,12 +63,14 @@ function App() {
   return (
     <div className="App">
       <h1>Users CRUD</h1>
+      <div className='form-container'>
       <FormUsers 
       createNewUser={createNewUser}
       updateInfo={updateInfo}
       updateUserById={updateUserById}
       setUpdateInfo={setUpdateInfo}
       />
+      </div>
 
       <div className='users-container'>
         {
