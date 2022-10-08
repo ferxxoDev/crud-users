@@ -9,7 +9,7 @@ const defaultValues ={
     birthday: ''
 }
 
-const FormUsers = ({createNewUser, updateInfo, updateUserById, setUpdateInfo}) => {
+const FormUsers = ({createNewUser, updateInfo, updateUserById, setUpdateInfo, setformIsClose}) => {
 
     // console.log(updateInfo);
 
@@ -32,11 +32,16 @@ const FormUsers = ({createNewUser, updateInfo, updateUserById, setUpdateInfo}) =
             createNewUser(data)
         }
         reset(defaultValues)
+        setformIsClose(true)
+    }
+
+    const handleCloseForm = () =>{
+        setformIsClose(true)
     }
 
   return (
     <form className='form' onSubmit={handleSubmit(submit)}>
-        <i className='form__x fa-solid fa-xmark'></i>
+        <i onClick={handleCloseForm} className='form__x fa-solid fa-xmark'></i>
         <h2 className='form__title'>{updateInfo ? 'Edit User': 'New User'}</h2>
         <div className='form__div'>
             <label className='form__label' htmlFor="email">Email</label>

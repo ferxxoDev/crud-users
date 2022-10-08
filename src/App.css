@@ -1,4 +1,8 @@
-.user-container{
+.App {
+    padding-bottom: 60px;
+}
+
+.users-container{
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -23,6 +27,30 @@
     display: none;
 }
 
+.App__container-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto ;
+}
+
 .App__btn{
-    
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    background-color: #555a88;
+    color: white;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.App__btn:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 10px #0005;
+    transition: transform 150ms ease, box-shadow 150ms ease;
 }

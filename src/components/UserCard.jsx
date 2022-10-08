@@ -1,8 +1,9 @@
 import React from "react";
 
-const UserCard = ({ user, deleteUserById, setUpdateInfo }) => {
+const UserCard = ({ user, deleteUserById, setUpdateInfo, setformIsClose }) => {
   const handleEdit = () => {
     setUpdateInfo(user);
+    setformIsClose(false)
   };
 
   return (

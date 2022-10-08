@@ -62,16 +62,23 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  const handleOpenFomr = () => {
+    setformIsClose(false)
+  }
+
   return (
     <div className="App">
-      <h1 className='App__title'>Users CRUD</h1>
-      <button className='App__btn'>Create a New User</button>
+      <div className='App__container-title'>
+        <h1 className='App__title'>Users CRUD</h1>
+        <button onClick={handleOpenFomr} className='App__btn'>Create a New User</button>
+      </div>
       <div className={`form-container ${formIsClose && 'disable__form'}`}>
       <FormUsers 
       createNewUser={createNewUser}
       updateInfo={updateInfo}
       updateUserById={updateUserById}
       setUpdateInfo={setUpdateInfo}
+      setformIsClose={setformIsClose}
       />
       </div>
 
@@ -83,6 +90,7 @@ function App() {
               user={user}
               deleteUserById={deleteUserById}
               setUpdateInfo={setUpdateInfo}
+              setformIsClose={setformIsClose}
             />
           )) 
         }
