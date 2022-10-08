@@ -68,16 +68,19 @@ function App() {
       updateUserById={updateUserById}
       setUpdateInfo={setUpdateInfo}
       />
-      {
-        users?.map(user => (
-          <UserCard
-            key={user.id}
-            user={user}
-            deleteUserById={deleteUserById}
-            setUpdateInfo={setUpdateInfo}
-          />
-        )) 
-      }
+
+      <div className='users-container'>
+        {
+          users?.map(user => (
+            <UserCard
+              key={user.id}
+              user={user}
+              deleteUserById={deleteUserById}
+              setUpdateInfo={setUpdateInfo}
+            />
+          )) 
+        }
+      </div>
     </div>
   )
 }
