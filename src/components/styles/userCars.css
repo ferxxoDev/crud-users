@@ -1,15 +1,20 @@
 .user {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc9;
-    border-radius: 8px;
+    background-color: rgba(57, 0, 73, 0.423);
+    backdrop-filter: blur(50px);
+    padding: 20px 30px;
+    border: 1px solid rgba(245, 245, 245, 0.504);
+    color: whitesmoke;
+    border-radius: 10px;
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     transition: box-shadow 200ms ease ;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.47);
 }
 
 .user:hover{
-    box-shadow:  0 0 10px #0005;
+    box-shadow:  0 10px 15px 5px  rgba(0, 0, 0, 0.172);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.675);
+
     transition: box-shadow 200ms ease ;
 }
 
@@ -31,10 +36,11 @@
     flex-direction: column;
     gap: 2px;
     font-weight: 400;
+    word-wrap: break-word
 }
 
 .user__span{
-    color: #ccc9;
+    color: ;
     font-weight: 300;
     text-transform: uppercase;
 }
@@ -66,10 +72,13 @@
 
 .user__btn:first-child {
     color: white;
-    background-color: #D85D5D;
+    border: 1px solid #ccc9;
+
+    background-color: var(--darkviolet);
 }
 
 .user__btn:last-child {
-    color: black;
+    color: white;
     border: 1px solid #ccc9;
+    background-color: rgba(164, 164, 164, 0.463);
 }

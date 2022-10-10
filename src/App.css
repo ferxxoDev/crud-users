@@ -1,19 +1,56 @@
+:root {
+    --darkviolet: #492E7A;
+    --violet1: #943BBA;
+    --gradient1: linear-gradient(
+        45deg,
+        hsl(282deg 52% 48%) 0%,
+        hsl(275deg 49% 44%) 17%,
+        hsl(268deg 47% 38%) 34%,
+        hsl(261deg 45% 33%) 50%,
+        hsl(268deg 47% 38%) 67%,
+        hsl(275deg 49% 44%) 84%,
+        hsl(282deg 52% 48%) 100%
+      );
+    --gradient2: linear-gradient(
+        45deg,
+        hsl(261deg 45% 33%) 0%,
+        hsl(268deg 47% 38%) 17%,
+        hsl(275deg 49% 44%) 34%,
+        hsl(282deg 52% 48%) 50%,
+        hsl(275deg 49% 44%) 67%,
+        hsl(268deg 47% 38%) 84%,
+        hsl(261deg 45% 33%) 100%
+      );
+
+}
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url(/img/papercut3.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
 .App {
+    
     padding-bottom: 60px;
+    
+
 }
 
-.users-container{
+.users-container {
     display: flex;
-    gap: 20px;
+    gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.form-container{
+.form-container {
     width: 100%;
     min-height: 100vh;
-    background-color: #0002;
-    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.061);
+    backdrop-filter: blur(5px);
     position: fixed;
     top: 0;
     display: flex;
@@ -21,13 +58,14 @@
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+    z-index: 1000;
 }
 
-.disable__form{
+.disable__form {
     display: none;
 }
 
-.App__container-title{
+.App__container-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,22 +73,47 @@
     padding: 20px;
     max-width: 1000px;
     margin-left: auto;
-    margin-right: auto ;
+    margin-right: auto;
+}
+.App__title{
+    color: var(--darkviolet);
+    
 }
 
-.App__btn{
-    width: 100%;
-    max-width: 200px;
-    padding: 10px;
-    background-color: #555a88;
+.App__btn {
+    background: linear-gradient(-45deg, #8839c0, #9f69fe, #492E7A, #7000b5);
+    background-size: 800% 400%;
+    padding: 1rem 2rem;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
     color: white;
-    margin-top: 15px;
-    cursor: pointer;
-    transition: transform 150ms ease, box-shadow 150ms ease;
+    transition: all .3s ease-in-out;
+    animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
 }
 
-.App__btn:hover{
-    transform: scale(1.04);
-    box-shadow: 0 0 10px #0005;
-    transition: transform 150ms ease, box-shadow 150ms ease;
+.App__btn:hover {
+    animation: gradient 3s infinite;
+    transform: scale(1.05);
+}
+
+.App__btn:active {
+    animation: gradient 3s infinite;
+    transform: scale(0.8);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }

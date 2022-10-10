@@ -11,7 +11,8 @@ const UserCard = ({ user, deleteUserById, setUpdateInfo, setformIsClose }) => {
       <h2 className="user__name">{`${user.first_name} ${user.last_name}`}</h2>
       <ul className="user__list">
         <li className="user__item">
-          <span className="user__span">Email: </span> {user.email}
+          <span className="user__span">Email: </span> 
+          <i class="fa-solid fa-envelope"></i>{user.email}
         </li>
         <li className="user__item">
           <span className="user__span">Birthday: </span>
